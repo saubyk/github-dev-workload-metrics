@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Metrics</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Add Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    crossorigin="anonymous" />
+  <!-- Add jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <!-- Add Popper.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+    integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
+    crossorigin="anonymous"></script>
+  <!-- Add Bootstrap JS -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <form id="metricsForm" class="container my-4">
+    <div class="form-group">
+      <label for="githubToken">GitHub Token</label>
+      <input type="password" class="form-control" id="githubToken" placeholder="Enter your GitHub token">
+    </div>
+    <div class="form-group">
+      <label for="repoOwner">Repository Owner</label>
+      <input type="text" class="form-control" id="repoOwner" placeholder="Enter repository owner">
+    </div>
+    <div class="form-group">
+      <label for="repoName">Repository Name</label>
+      <input type="text" class="form-control" id="repoName" placeholder="Enter repository name">
+    </div>
+    <div class="form-group">
+      <label for="milestoneTitle">Milestone</label>
+      <input type="text" class="form-control" id="milestoneTitle" placeholder="Enter milestone title">
+    </div>
+    <button type="submit" class="btn btn-primary mb-3">Get Metrics</button>
+    <div class="text-center">
+      <div class="spinner-border" role="status" id="loadingSpinner" style="display:none;">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12" id="showData" style="display:none;">
+        <div class="card mb-3">
+          <canvas id="userWorkloadChart"></canvas>
+        </div>
+
+        <div id="prMetrics"></div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>PR Number</th>
+              <th>PR Title</th>
+              <th>Assignee</th>
+              <th>Reviewers</th>
+            </tr>
+          </thead>
+          <tbody id="prMetricsTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </form>
+  <script src="index.js"></script>
+</body>
+
+</html>
